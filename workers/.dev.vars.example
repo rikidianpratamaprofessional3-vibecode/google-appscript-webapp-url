@@ -1,0 +1,5 @@
+# Local development environment variables
+# Copy this to .dev.vars and fill in your values
+# These are used by wrangler dev
+
+JWT_SECRET=your-local-jwt-secret-key-here

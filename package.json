@@ -1,0 +1,37 @@
+{
+  "name": "gas-link",
+  "version": "1.0.0",
+  "description": "Professional URL Shortener for Google Apps Script Webapps",
+  "private": true,
+  "scripts": {
+    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "cd workers && npm install",
+    "setup:frontend": "cd frontend && npm install",
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "dev:backend": "cd workers && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "deploy:backend": "cd workers && npm run deploy",
+    "deploy:frontend": "cd frontend && npm run build && npx wrangler pages deploy dist --project-name=gas-link-dashboard",
+    "deploy": "npm run deploy:backend && npm run deploy:frontend"
+  },
+  "keywords": [
+    "url-shortener",
+    "google-apps-script",
+    "cloudflare",
+    "workers",
+    "d1",
+    "react",
+    "typescript"
+  ],
+  "author": "GAS Link Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/gas-link.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

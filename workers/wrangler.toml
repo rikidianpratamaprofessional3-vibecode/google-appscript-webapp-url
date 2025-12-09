@@ -1,0 +1,23 @@
+name = "gas-link-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-10"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "gas-link-db"
+database_id = "4f5d0d18-0389-46d4-b5e5-fb816eb65f0a"
+
+# KV Namespace binding
+[[kv_namespaces]]
+binding = "KV"
+id = "bbe76ce0c1d7455e815feb8a08b91a90"
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+JWT_EXPIRES_IN = "7d"
+
+# Routes - handle both API and redirects
+# API routes: yourdomain.com/api/*
+# Redirects: yourdomain.com/:slug
