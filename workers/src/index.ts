@@ -39,8 +39,7 @@ app.use('/*', cors({
   origin: [
     'http://localhost:5173', 
     'http://localhost:3000',
-    'https://e28f6ccd.gas-link-dashboard.pages.dev',
-    'https://gas-link-dashboard.pages.dev'
+    'https://google-appscript-webapp-url.pages.dev'
   ],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],
