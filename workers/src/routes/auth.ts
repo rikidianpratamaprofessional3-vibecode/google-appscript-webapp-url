@@ -35,13 +35,15 @@ export async function handleSignup(c: Context<{ Bindings: Env }>) {
     const now = Date.now();
 
     await c.env.DB.prepare(
-      'INSERT INTO users (id, email, password_hash, name, subscription, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO users (id, email, password_hash, name, subscription, subscription_status, is_admin, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
     ).bind(
       userId,
       email.toLowerCase(),
       passwordHash,
       name || null,
       'free',
+      'active',
+      0,
       now,
       now
     ).run();

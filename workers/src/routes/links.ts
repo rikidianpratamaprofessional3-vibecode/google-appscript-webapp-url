@@ -4,9 +4,12 @@ import { generateId } from '../utils/auth';
 import { isValidUrl, isValidSlug, isReservedSlug, sanitizeSlug } from '../utils/validation';
 
 const SUBSCRIPTION_LIMITS = {
-  free: 10,
-  pro: 100,
-  business: Infinity,
+  free: 1,
+  basic: 3,
+  premium: 10,
+  enterprise: 999999,
+  pro: 100, // Legacy - keep for backward compatibility
+  business: Infinity, // Legacy
 };
 
 export async function handleCreateLink(c: Context<{ Bindings: Env }>) {

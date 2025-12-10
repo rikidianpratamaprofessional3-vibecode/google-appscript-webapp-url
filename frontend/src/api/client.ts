@@ -13,13 +13,17 @@ async function fetchApi<T>(
 ): Promise<T> {
   const token = useAuthStore.getState().token;
 
-  const headers: HeadersInit = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
-    ...options.headers,
   };
 
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  // Merge with options.headers if provided
+  if (options.headers) {
+    Object.assign(headers, options.headers);
   }
 
   const response = await fetch(url, {
