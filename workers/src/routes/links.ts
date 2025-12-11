@@ -4,7 +4,7 @@ import { generateId } from '../utils/auth';
 import { isValidUrl, isValidSlug, isReservedSlug, sanitizeSlug } from '../utils/validation';
 
 const SUBSCRIPTION_LIMITS = {
-  free: 1,
+  free: 10,
   basic: 3,
   premium: 10,
   enterprise: 999999,

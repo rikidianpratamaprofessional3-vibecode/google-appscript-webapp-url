@@ -14,16 +14,19 @@ export async function handleRedirect(c: Context<{ Bindings: Env }>) {
 
   try {
     let destinationUrl: string;
-    let title: string = 'Loading...';
+    let title: string | null = null;
+    let linkId: string | null = null;
 
     // Step 1: Check KV cache first (ultra fast)
-    const cachedUrl = await c.env.KV.get(`${KV_PREFIX}${slug}`);
+    const cachedData = await c.env.KV.get(`${KV_PREFIX}${slug}`, 'json') as { url: string; title?: string; id: string } | null;
     
-    if (cachedUrl) {
-      destinationUrl = cachedUrl;
+    if (cachedData) {
+      destinationUrl = cachedData.url;
+      title = cachedData.title || null;
+      linkId = cachedData.id;
       
       // Log analytics asynchronously (non-blocking)
-      c.executionCtx.waitUntil(logAnalytics(c, slug));
+      c.executionCtx.waitUntil(logAnalytics(c, slug, linkId));
       
       // Increment click count asynchronously
       c.executionCtx.waitUntil(incrementClickCount(c, slug));
@@ -38,26 +41,30 @@ export async function handleRedirect(c: Context<{ Bindings: Env }>) {
       }
 
       destinationUrl = result.destination_url;
-      title = result.title || 'Loading...';
+      title = result.title || null;
+      linkId = result.id;
 
-      // Step 3: Cache to KV for next time
+      // Step 3: Cache to KV for next time (store as JSON with title)
       await c.env.KV.put(
         `${KV_PREFIX}${slug}`,
-        result.destination_url,
+        JSON.stringify({ url: result.destination_url, title: result.title, id: result.id }),
         { expirationTtl: KV_TTL }
       );
 
       // Log analytics and increment clicks asynchronously
-      c.executionCtx.waitUntil(logAnalytics(c, slug, result.id));
+      c.executionCtx.waitUntil(logAnalytics(c, slug, linkId));
       c.executionCtx.waitUntil(incrementClickCount(c, slug));
     }
+
+    // Set default title if not provided
+    const pageTitle = title || 'Redirecting...';
 
     // Return HTML with iframe wrapper (GAS webapp hosting)
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>${escapeHtml(title)}</title>
+  <title>${escapeHtml(pageTitle)}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <style>
