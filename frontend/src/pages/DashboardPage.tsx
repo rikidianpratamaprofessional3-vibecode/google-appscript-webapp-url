@@ -52,12 +52,28 @@ export default function DashboardPage() {
                 {user?.email} • <span className="capitalize">{user?.subscription}</span> Plan
               </p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900 font-medium"
-            >
-              Logout
-            </button>
+            <div className="flex gap-3">
+              <a
+                href="/profile"
+                className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900 font-medium border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+              >
+                Profile
+              </a>
+              {user?.is_admin && (
+                <a
+                  href="/admin"
+                  className="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium"
+                >
+                  Admin Panel
+                </a>
+              )}
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900 font-medium"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </header>

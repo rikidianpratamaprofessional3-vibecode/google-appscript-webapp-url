@@ -5,7 +5,7 @@ import type { Env } from './types';
 // Routes
 import { handleLanding } from './routes/landing';
 import { handleRedirect } from './routes/redirect';
-import { handleSignup, handleLogin, handleGetMe } from './routes/auth';
+import { handleSignup, handleLogin, handleGetMe, handleUpdateProfile, handleChangePassword } from './routes/auth';
 import { 
   handleCreateLink, 
   handleGetLinks, 
@@ -64,6 +64,8 @@ app.post('/api/auth/login', handleLogin);
 
 // Auth routes (protected)
 app.get('/api/auth/me', authMiddleware, handleGetMe);
+app.put('/api/auth/profile', authMiddleware, handleUpdateProfile);
+app.post('/api/auth/change-password', authMiddleware, handleChangePassword);
 
 // Links routes (protected)
 app.post('/api/links', authMiddleware, handleCreateLink);
