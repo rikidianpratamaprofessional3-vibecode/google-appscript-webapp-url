@@ -1,8 +1,2 @@
-[build]
-command = "cd frontend && npm install && npm run build"
-cwd = "."
-watch_dirs = ["frontend/src"]
-
-[build.upload]
-format = "service-worker"
-dir = "frontend/dist"
+name = "google-appscript-webapp-url"
+pages_build_output_dir = "frontend/dist"

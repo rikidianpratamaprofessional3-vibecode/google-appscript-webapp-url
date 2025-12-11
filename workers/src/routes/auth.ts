@@ -83,7 +83,7 @@ export async function handleLogin(c: Context<{ Bindings: Env }>) {
 
     // Find user
     const user = await c.env.DB.prepare(
-      'SELECT id, email, password_hash, name, subscription FROM users WHERE email = ?'
+      'SELECT id, email, password_hash, name, subscription, is_admin FROM users WHERE email = ?'
     ).bind(email.toLowerCase()).first<User>();
 
     if (!user) {
@@ -112,6 +112,7 @@ export async function handleLogin(c: Context<{ Bindings: Env }>) {
         email: user.email,
         name: user.name,
         subscription: user.subscription,
+        is_admin: user.is_admin || false,
       },
     });
   } catch (error) {
@@ -125,7 +126,7 @@ export async function handleGetMe(c: Context<{ Bindings: Env }>) {
     const userId = c.get('userId') as string;
 
     const user = await c.env.DB.prepare(
-      'SELECT id, email, name, subscription, subscription_expires_at, created_at FROM users WHERE id = ?'
+      'SELECT id, email, name, subscription, subscription_expires_at, is_admin, created_at FROM users WHERE id = ?'
     ).bind(userId).first<User>();
 
     if (!user) {
@@ -139,6 +140,7 @@ export async function handleGetMe(c: Context<{ Bindings: Env }>) {
         name: user.name,
         subscription: user.subscription,
         subscription_expires_at: user.subscription_expires_at,
+        is_admin: user.is_admin || false,
         created_at: user.created_at,
       },
     });

@@ -4,6 +4,7 @@ export interface User {
   name: string | null;
   subscription: 'free' | 'pro' | 'business';
   subscription_expires_at?: number | null;
+  is_admin?: boolean;
   created_at?: number;
 }
 
