@@ -446,7 +446,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
         <div class="plan-price">Rp15.000</div>
         <div class="plan-period">/bulan</div>
         <ul class="plan-features">
-          <li>3 Subdomain</li>
+          <li>5 Subdomain</li>
           <li>Advanced Analytics</li>
           <li>Priority Support</li>
           <li>Custom Domain Ready</li>

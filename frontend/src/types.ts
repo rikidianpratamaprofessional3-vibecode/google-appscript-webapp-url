@@ -2,7 +2,7 @@ export interface User {
   id: string;
   email: string;
   name: string | null;
-  subscription: 'free' | 'pro' | 'business';
+  subscription: 'free' | 'basic' | 'premium' | 'enterprise' | 'pro' | 'business';
   subscription_expires_at?: number | null;
   is_admin?: boolean;
   created_at?: number;

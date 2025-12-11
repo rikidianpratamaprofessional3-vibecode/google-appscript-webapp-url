@@ -4,8 +4,8 @@ import { generateId } from '../utils/auth';
 import { isValidUrl, isValidSlug, isReservedSlug, sanitizeSlug } from '../utils/validation';
 
 const SUBSCRIPTION_LIMITS = {
-  free: 10,
-  basic: 3,
+  free: 1,
+  basic: 5,
   premium: 10,
   enterprise: 999999,
   pro: 100, // Legacy - keep for backward compatibility

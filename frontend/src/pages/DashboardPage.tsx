@@ -85,7 +85,9 @@ export default function DashboardPage() {
             <div className="text-sm font-medium text-gray-600 mb-1">Total Links</div>
             <div className="text-3xl font-bold text-gray-900">{links.length}</div>
             <div className="text-xs text-gray-500 mt-1">
-              {user?.subscription === 'free' && `${links.length}/10 used`}
+              {user?.subscription === 'free' && `${links.length}/1 used`}
+              {user?.subscription === 'basic' && `${links.length}/5 used`}
+              {user?.subscription === 'premium' && `${links.length}/10 used`}
             </div>
           </div>
           <div className="bg-white rounded-lg shadow p-6">
