@@ -18,7 +18,7 @@ export async function handleCreateLink(c: Context<{ Bindings: Env }>) {
     const userSubscription = c.get('subscription') as 'free' | 'pro' | 'business';
     const body = await c.req.json<CreateLinkInput>();
 
-    const { slug, destination_url, title, description, category } = body;
+    const { slug, destination_url, title, description, category, redirect_mode = 'auto' } = body;
 
     if (!slug || !destination_url) {
       return c.json({ error: 'Slug and destination URL are required' }, 400);
@@ -67,7 +67,7 @@ export async function handleCreateLink(c: Context<{ Bindings: Env }>) {
     const now = Date.now();
 
     await c.env.DB.prepare(
-      'INSERT INTO links (id, user_id, slug, destination_url, title, description, category, is_active, click_count, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO links (id, user_id, slug, destination_url, title, description, category, redirect_mode, is_subdomain, is_active, click_count, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     ).bind(
       linkId,
       userId,
@@ -76,6 +76,8 @@ export async function handleCreateLink(c: Context<{ Bindings: Env }>) {
       title || null,
       description || null,
       category || null,
+      redirect_mode,
+      1, // All links are subdomain now
       1,
       0,
       now,
@@ -92,6 +94,8 @@ export async function handleCreateLink(c: Context<{ Bindings: Env }>) {
       title,
       description,
       category,
+      redirect_mode,
+      is_subdomain: true,
       is_active: true,
       click_count: 0,
       created_at: now,
@@ -111,7 +115,7 @@ export async function handleGetLinks(c: Context<{ Bindings: Env }>) {
     const userId = c.get('userId') as string;
 
     const links = await c.env.DB.prepare(
-      'SELECT id, slug, destination_url, title, description, category, is_active, click_count, created_at, updated_at, last_accessed_at FROM links WHERE user_id = ? ORDER BY created_at DESC'
+      'SELECT id, slug, destination_url, title, description, category, redirect_mode, is_subdomain, is_active, click_count, created_at, updated_at, last_accessed_at FROM links WHERE user_id = ? ORDER BY created_at DESC'
     ).bind(userId).all<Link>();
 
     // Convert is_active from number to boolean for frontend
@@ -136,7 +140,7 @@ export async function handleGetLink(c: Context<{ Bindings: Env }>) {
     const linkId = c.req.param('id');
 
     const link = await c.env.DB.prepare(
-      'SELECT id, slug, destination_url, title, description, category, is_active, click_count, created_at, updated_at, last_accessed_at FROM links WHERE id = ? AND user_id = ?'
+      'SELECT id, slug, destination_url, title, description, category, redirect_mode, is_subdomain, is_active, click_count, created_at, updated_at, last_accessed_at FROM links WHERE id = ? AND user_id = ?'
     ).bind(linkId, userId).first<Link>();
 
     if (!link) {

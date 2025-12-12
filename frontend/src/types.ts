@@ -10,11 +10,13 @@ export interface User {
 
 export interface Link {
   id: string;
-  slug: string;
+  slug: string; // Represents subdomain (e.g., 'myapp' for myapp.linkku.com)
   destination_url: string;
   title: string | null;
   description: string | null;
   category: string | null;
+  redirect_mode: 'auto' | 'iframe' | 'direct';
+  is_subdomain: boolean;
   is_active: boolean;
   click_count: number;
   created_at: number;
@@ -23,11 +25,12 @@ export interface Link {
 }
 
 export interface CreateLinkInput {
-  slug: string;
+  slug: string; // Subdomain name
   destination_url: string;
   title?: string;
   description?: string;
   category?: string;
+  redirect_mode?: 'auto' | 'iframe' | 'direct';
 }
 
 export interface UpdateLinkInput {

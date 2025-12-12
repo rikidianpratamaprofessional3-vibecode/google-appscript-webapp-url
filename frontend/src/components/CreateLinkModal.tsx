@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { linksApi } from '../api/links';
-import { SHORT_URL_BASE } from '../config';
 
 interface CreateLinkModalProps {
   onClose: () => void;
@@ -62,7 +61,7 @@ export default function CreateLinkModal({ onClose, onSuccess }: CreateLinkModalP
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="destination_url" className="block text-sm font-medium text-gray-700 mb-1">
-              Destination URL (GAS Webapp) *
+              Destination URL *
             </label>
             <input
               id="destination_url"
@@ -70,30 +69,35 @@ export default function CreateLinkModal({ onClose, onSuccess }: CreateLinkModalP
               value={destinationUrl}
               onChange={(e) => setDestinationUrl(e.target.value)}
               required
-              placeholder="https://script.google.com/macros/s/..."
+              placeholder="https://script.google.com/... or any URL"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
-            <p className="mt-1 text-xs text-gray-500">Paste your Google Apps Script webapp URL here</p>
+            <p className="mt-1 text-xs text-gray-500">
+              Support GAS webapp, regular website, API, atau URL apapun
+            </p>
           </div>
 
           <div>
             <label htmlFor="slug" className="block text-sm font-medium text-gray-700 mb-1">
-              Custom Slug *
+              Subdomain Name *
             </label>
             <div className="flex items-center gap-2">
-              <span className="text-gray-500 text-sm">{SHORT_URL_BASE}/</span>
               <input
                 id="slug"
                 type="text"
                 value={slug}
-                onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ''))}
+                onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))}
                 required
-                placeholder="my-app"
-                pattern="[a-z0-9_-]{3,50}"
+                placeholder="myapp"
+                pattern="[a-z0-9-]{3,50}"
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
+              <span className="text-gray-500 text-sm whitespace-nowrap">.linkku.com</span>
             </div>
-            <p className="mt-1 text-xs text-gray-500">3-50 characters: letters, numbers, hyphens, underscores</p>
+            <p className="mt-1 text-xs text-gray-500">
+              Your subdomain: <strong className="text-blue-600">{slug || 'myapp'}.linkku.com</strong>
+            </p>
+            <p className="mt-1 text-xs text-gray-400">3-50 characters: letters, numbers, hyphens only</p>
           </div>
 
           <div>

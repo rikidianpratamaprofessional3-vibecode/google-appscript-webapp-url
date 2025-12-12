@@ -15,6 +15,8 @@ export interface User {
   subscription_status: 'active' | 'pending' | 'expired' | 'cancelled';
   subscription_requested: 'basic' | 'premium' | 'enterprise' | null;
   subscription_expires_at: number | null;
+  subscription_expired_at: number | null;
+  subscription_grace_until: number | null;
   is_admin: number;
   whatsapp_number: string | null;
   created_at: number;
@@ -39,13 +41,15 @@ export interface PaymentRequest {
 export interface Link {
   id: string;
   user_id: string;
-  slug: string;
+  slug: string; // Now represents subdomain (e.g., 'myapp' for myapp.linkku.com)
   destination_url: string;
   title: string | null;
   description: string | null;
   category: string | null;
   is_active: number;
   click_count: number;
+  redirect_mode: 'auto' | 'iframe' | 'direct';
+  is_subdomain: number;
   created_at: number;
   updated_at: number;
   last_accessed_at: number | null;
@@ -67,11 +71,12 @@ export interface JWTPayload {
 }
 
 export interface CreateLinkInput {
-  slug: string;
+  slug: string; // Subdomain name (e.g., 'myapp')
   destination_url: string;
   title?: string;
   description?: string;
   category?: string;
+  redirect_mode?: 'auto' | 'iframe' | 'direct';
 }
 
 export interface UpdateLinkInput {
