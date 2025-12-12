@@ -372,8 +372,8 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>SUBDOMAIN GRATIS<br>UNTUK GOOGLE APPS SCRIPT</h1>
-    <p class="subtitle">Hilangkan Pesan "This Application Was Created By..." • Subdomain Gratis • Professional Look</p>
+    <h1>SUBDOMAIN GRATIS<br>UNTUK SEMUA APLIKASI WEB</h1>
+    <p class="subtitle">Google Apps Script • Website • API • Web App Apapun • Subdomain Custom Gratis!</p>
     <div class="hero-cta">
       <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn">MULAI GRATIS</a>
       <a href="#pricing" class="btn">LIHAT HARGA</a>
@@ -386,38 +386,38 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">🎁</div>
-        <h3 class="feature-title">SUBDOMAIN GRATIS</h3>
-        <p class="feature-desc">Dapatkan 1 subdomain gratis selamanya untuk host aplikasi Google Apps Script Anda.</p>
+        <h3 class="feature-title">SUBDOMAIN CUSTOM</h3>
+        <p class="feature-desc">Dapatkan subdomain profesional: myapp.linkku.com untuk aplikasi atau website Anda.</p>
       </div>
       
       <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3 class="feature-title">TANPA PESAN GOOGLE</h3>
-        <p class="feature-desc">Hilangkan pesan "This application was created by a Google Apps Script user" dari webapp Anda.</p>
+        <div class="feature-icon">🌐</div>
+        <h3 class="feature-title">UNIVERSAL SUPPORT</h3>
+        <p class="feature-desc">Support Google Apps Script, website biasa, web app, API endpoint, atau URL apapun!</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">📊</div>
         <h3 class="feature-title">ANALYTICS</h3>
-        <p class="feature-desc">Track berapa banyak orang yang mengakses webapp Anda dengan analytics lengkap.</p>
+        <p class="feature-desc">Track berapa banyak orang yang mengakses subdomain Anda dengan analytics lengkap.</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">⚡</div>
-        <h3 class="feature-title">LOADING CEPAT</h3>
-        <p class="feature-desc">Powered by Cloudflare global CDN, webapp Anda load dalam hitungan milidetik.</p>
+        <h3 class="feature-title">AUTO-DETECT MODE</h3>
+        <p class="feature-desc">Sistem otomatis deteksi jenis URL dan pilih mode redirect terbaik (iframe atau direct).</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
-        <h3 class="feature-title">AMAN & SECURE</h3>
-        <p class="feature-desc">Iframe wrapper yang aman dengan sandbox protection dan HTTPS enforcement.</p>
+        <h3 class="feature-title">AMAN & CEPAT</h3>
+        <p class="feature-desc">Powered by Cloudflare global CDN dengan HTTPS otomatis dan redirect <50ms.</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">💼</div>
         <h3 class="feature-title">PROFESSIONAL</h3>
-        <p class="feature-desc">Tingkatkan kredibilitas aplikasi Anda dengan tampilan yang lebih profesional.</p>
+        <p class="feature-desc">Ganti URL panjang dengan subdomain branded yang mudah diingat dan profesional.</p>
       </div>
     </div>
   </section>

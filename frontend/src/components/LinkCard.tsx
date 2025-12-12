@@ -13,10 +13,17 @@ export default function LinkCard({ link, onUpdate }: LinkCardProps) {
   const [showDelete, setShowDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
-  const shortUrl = `${SHORT_URL_BASE}/${link.slug}`;
+  // Generate subdomain URL
+  const baseDomain = SHORT_URL_BASE.replace(/^https?:\/\//, '').replace(/^www\./, '');
+  const shortUrl = `https://${link.slug}.${baseDomain}`;
+  
+  // Fallback to path-based for now (until custom domain setup)
+  const shortUrlFallback = `${SHORT_URL_BASE}/${link.slug}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(shortUrl);
+    // Copy subdomain URL (or fallback if no custom domain yet)
+    const urlToCopy = baseDomain.includes('workers.dev') ? shortUrlFallback : shortUrl;
+    navigator.clipboard.writeText(urlToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -71,15 +78,21 @@ export default function LinkCard({ link, onUpdate }: LinkCardProps) {
 
       <div className="space-y-2 mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500 w-24">Short URL:</span>
-          <a
-            href={shortUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-700 font-medium text-sm flex-1 truncate"
-          >
-            {shortUrl}
-          </a>
+          <span className="text-sm text-gray-500 w-24">Subdomain:</span>
+          <div className="flex-1">
+            <a
+              href={shortUrlFallback}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 font-medium text-sm truncate block"
+            >
+              {link.slug}.linkku.com
+            </a>
+            <p className="text-xs text-gray-400 mt-0.5">
+              {baseDomain.includes('workers.dev') && '(Needs custom domain setup)'}
+              {link.redirect_mode && ` • Mode: ${link.redirect_mode}`}
+            </p>
+          </div>
           <button
             onClick={handleCopy}
             className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 rounded transition"
@@ -88,12 +101,13 @@ export default function LinkCard({ link, onUpdate }: LinkCardProps) {
           </button>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500 w-24">Destination:</span>
+          <span className="text-sm text-gray-500 w-24">Target URL:</span>
           <a
             href={link.destination_url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 text-sm flex-1 truncate hover:text-gray-900"
+            title={link.destination_url}
           >
             {link.destination_url}
           </a>
