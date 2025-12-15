@@ -92,10 +92,10 @@ export default function CreateLinkModal({ onClose, onSuccess }: CreateLinkModalP
                 pattern="[a-z0-9-]{3,50}"
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <span className="text-gray-500 text-sm whitespace-nowrap">.linkku.com</span>
+              <span className="text-gray-500 text-sm whitespace-nowrap">.digitalin.online</span>
             </div>
             <p className="mt-1 text-xs text-gray-500">
-              Your subdomain: <strong className="text-blue-600">{slug || 'myapp'}.linkku.com</strong>
+              Your subdomain: <strong className="text-blue-600">{slug || 'myapp'}.digitalin.online</strong>
             </p>
             <p className="mt-1 text-xs text-gray-400">3-50 characters: letters, numbers, hyphens only</p>
           </div>

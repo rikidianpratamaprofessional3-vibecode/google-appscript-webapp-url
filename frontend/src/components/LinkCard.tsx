@@ -16,14 +16,9 @@ export default function LinkCard({ link, onUpdate }: LinkCardProps) {
   // Generate subdomain URL
   const baseDomain = SHORT_URL_BASE.replace(/^https?:\/\//, '').replace(/^www\./, '');
   const shortUrl = `https://${link.slug}.${baseDomain}`;
-  
-  // Fallback to path-based for now (until custom domain setup)
-  const shortUrlFallback = `${SHORT_URL_BASE}/${link.slug}`;
 
   const handleCopy = () => {
-    // Copy subdomain URL (or fallback if no custom domain yet)
-    const urlToCopy = baseDomain.includes('workers.dev') ? shortUrlFallback : shortUrl;
-    navigator.clipboard.writeText(urlToCopy);
+    navigator.clipboard.writeText(shortUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -81,16 +76,15 @@ export default function LinkCard({ link, onUpdate }: LinkCardProps) {
           <span className="text-sm text-gray-500 w-24">Subdomain:</span>
           <div className="flex-1">
             <a
-              href={shortUrlFallback}
+              href={shortUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-700 font-medium text-sm truncate block"
             >
-              {link.slug}.linkku.com
+              {link.slug}.digitalin.online
             </a>
             <p className="text-xs text-gray-400 mt-0.5">
-              {baseDomain.includes('workers.dev') && '(Needs custom domain setup)'}
-              {link.redirect_mode && ` • Mode: ${link.redirect_mode}`}
+              {link.redirect_mode && `Mode: ${link.redirect_mode}`}
             </p>
           </div>
           <button

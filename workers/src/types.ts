@@ -41,7 +41,7 @@ export interface PaymentRequest {
 export interface Link {
   id: string;
   user_id: string;
-  slug: string; // Now represents subdomain (e.g., 'myapp' for myapp.linkku.com)
+  slug: string; // Now represents subdomain (e.g., 'myapp' for myapp.digitalin.online)
   destination_url: string;
   title: string | null;
   description: string | null;

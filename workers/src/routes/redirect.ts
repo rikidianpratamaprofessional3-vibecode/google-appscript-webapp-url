@@ -13,7 +13,7 @@ export async function handleRedirect(c: Context<{ Bindings: Env }>) {
   let subdomain: string | null = null;
   let slug: string | null = null;
   
-  // Check if request is to subdomain (e.g., myapp.linkku.com)
+  // Check if request is to subdomain (e.g., myapp.digitalin.online)
   if (host.includes('.')) {
     const parts = host.split('.');
     // Check if it's a subdomain (not root domain)
@@ -98,7 +98,7 @@ export async function handleRedirect(c: Context<{ Bindings: Env }>) {
   <div class="container">
     <h1>⚠️ Subdomain Expired</h1>
     <p>This subdomain subscription has expired.</p>
-    <p>Please <a href="https://google-appscript-webapp-url.pages.dev/login">renew your subscription</a> to reactivate.</p>
+    <p>Please <a href="https://app.digitalin.online/login">renew your subscription</a> to reactivate.</p>
   </div>
 </body>
 </html>`, 403);

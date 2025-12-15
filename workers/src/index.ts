@@ -39,6 +39,7 @@ app.use('/*', cors({
   origin: [
     'http://localhost:5173', 
     'http://localhost:3000',
+    'https://app.digitalin.online',
     'https://google-appscript-webapp-url.pages.dev'
   ],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

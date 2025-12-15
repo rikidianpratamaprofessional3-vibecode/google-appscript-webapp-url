@@ -10,7 +10,7 @@ export interface User {
 
 export interface Link {
   id: string;
-  slug: string; // Represents subdomain (e.g., 'myapp' for myapp.linkku.com)
+  slug: string; // Represents subdomain (e.g., 'myapp' for myapp.digitalin.online)
   destination_url: string;
   title: string | null;
   description: string | null;

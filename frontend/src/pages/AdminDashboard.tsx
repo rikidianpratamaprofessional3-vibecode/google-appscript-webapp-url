@@ -207,7 +207,7 @@ export default function AdminDashboard() {
           </Link>
 
           <a
-            href="https://gas-link-worker.rikidianpratama-professional3.workers.dev"
+            href="https://digitalin.online"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition"

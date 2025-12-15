@@ -1,5 +1,5 @@
 // API configuration
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://gas-link-worker.rikidianpratama-professional3.workers.dev';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://digitalin.online';
 
 export const API_ENDPOINTS = {
   AUTH: {
@@ -18,4 +18,4 @@ export const API_ENDPOINTS = {
   },
 };
 
-export const SHORT_URL_BASE = import.meta.env.VITE_SHORT_URL_BASE || 'https://gas-link-worker.rikidianpratama-professional3.workers.dev';
+export const SHORT_URL_BASE = import.meta.env.VITE_SHORT_URL_BASE || 'https://digitalin.online';

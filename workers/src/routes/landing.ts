@@ -366,7 +366,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
     <nav class="header-nav">
       <a href="#features">FEATURES</a>
       <a href="#pricing">PRICING</a>
-      <a href="https://google-appscript-webapp-url.pages.dev/login">LOGIN</a>
+      <a href="https://app.digitalin.online/login">LOGIN</a>
     </nav>
   </header>
 
@@ -375,7 +375,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
     <h1>SUBDOMAIN GRATIS<br>UNTUK SEMUA APLIKASI WEB</h1>
     <p class="subtitle">Google Apps Script • Website • API • Web App Apapun • Subdomain Custom Gratis!</p>
     <div class="hero-cta">
-      <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn">MULAI GRATIS</a>
+      <a href="https://app.digitalin.online/signup" class="btn">MULAI GRATIS</a>
       <a href="#pricing" class="btn">LIHAT HARGA</a>
     </div>
   </section>
@@ -387,7 +387,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
       <div class="feature-card">
         <div class="feature-icon">🎁</div>
         <h3 class="feature-title">SUBDOMAIN CUSTOM</h3>
-        <p class="feature-desc">Dapatkan subdomain profesional: myapp.linkku.com untuk aplikasi atau website Anda.</p>
+        <p class="feature-desc">Dapatkan subdomain profesional: myapp.digitalin.online untuk aplikasi atau website Anda.</p>
       </div>
       
       <div class="feature-card">
@@ -437,7 +437,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
           <li>Community Support</li>
           <li>Cloudflare CDN</li>
         </ul>
-        <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn btn-black">DAFTAR GRATIS</a>
+        <a href="https://app.digitalin.online/signup" class="btn btn-black">DAFTAR GRATIS</a>
       </div>
       
       <!-- Basic Plan -->
@@ -452,7 +452,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
           <li>Custom Domain Ready</li>
           <li>No Branding</li>
         </ul>
-        <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn btn-black">UPGRADE BASIC</a>
+        <a href="https://app.digitalin.online/signup" class="btn btn-black">UPGRADE BASIC</a>
       </div>
       
       <!-- Premium Plan -->
@@ -468,7 +468,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
           <li>API Access</li>
           <li>White Label</li>
         </ul>
-        <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn btn-black">UPGRADE PREMIUM</a>
+        <a href="https://app.digitalin.online/signup" class="btn btn-black">UPGRADE PREMIUM</a>
       </div>
       
       <!-- Enterprise Plan -->
@@ -486,7 +486,7 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
           <li>SLA 99.9%</li>
           <li>Priority Deployment</li>
         </ul>
-        <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn btn-black">UPGRADE ENTERPRISE</a>
+        <a href="https://app.digitalin.online/signup" class="btn btn-black">UPGRADE ENTERPRISE</a>
       </div>
     </div>
   </section>
@@ -495,17 +495,21 @@ export async function handleLanding(c: Context<{ Bindings: Env }>) {
   <section class="cta">
     <h2>SIAP TINGKATKAN<br>APLIKASI ANDA?</h2>
     <p>Mulai gratis hari ini. Tidak perlu kartu kredit.</p>
-    <a href="https://google-appscript-webapp-url.pages.dev/signup" class="btn">DAFTAR SEKARANG</a>
+    <a href="https://app.digitalin.online/signup" class="btn">DAFTAR SEKARANG</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2024 GAS Link. Built with 💛 using Cloudflare Workers.</p>
-    <p style="margin-top: 8px;">
+    <p style="margin-bottom: 12px; border-bottom: 2px solid var(--yellow); padding-bottom: 12px;">──────────────────────────────</p>
+    <p>© 2025 Google AppScript WebApp URL Professional</p>
+    <p style="margin: 8px 0;">Crafted with care by Riki Dian Pratama</p>
+    <p style="margin-bottom: 12px;">Built on Cloudflare Workers</p>
+    <p style="margin-top: 12px;">
       <a href="/api/health">API Status</a> • 
-      <a href="https://google-appscript-webapp-url.pages.dev">Dashboard</a> • 
+      <a href="https://app.digitalin.online">Dashboard</a> • 
       <a href="https://wa.me/${adminWhatsApp}">Support</a>
     </p>
+    <p style="margin-top: 12px; border-top: 2px solid var(--yellow); padding-top: 12px;">──────────────────────────────</p>
   </footer>
 
   <!-- JSON-LD Structured Data for SEO -->
