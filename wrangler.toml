@@ -1,6 +1,2 @@
 name = "google-appscript-webapp-url"
 pages_build_output_dir = "frontend/dist"
-
-# Pages build configuration
-[build]
-command = "cd frontend && npm install && npm run build"
